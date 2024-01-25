@@ -1,3 +1,4 @@
+
 # Template Repository
 [![License: BSD3](https://img.shields.io/badge/License-BSD3-blue.svg)](https://opensource.org/license/bsd-3-clause/)
 
@@ -7,10 +8,55 @@
 This repository is a template for all the repositories that will be used at the hackathon 2024 part of the symposium.
 
 ## Contributors
-* Contributor 1
-* Contributor 2
+* [Christophe Vandeplas](https://github.com/cvandeplas)
+* [Christoph](https://github.com/guschtel)
 * ...
 
 ## Instructions
-This section will highlight the instructions needed for this repository
+In order to quickly run Jitsi Meet on a machine running Docker and Docker Compose, follow these steps:
+
+Clone this repository.
+
+Create a .env file by copying and adjusting env.example:
+
+```
+cp env.example .env
+```
+
+Set strong passwords in the security section options of .env file by running the following bash script
+```
+./gen-passwords.sh
+```
+Create required CONFIG directories
+
+For linux:
+```
+mkdir -p ~/.jitsi-meet-cfg/{web,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri}
+```
+
+Configure KeyCloak (webUI or through CLI) and set the configuration variables in the `.env` file: 
+- In the admin webui: Create Client : client_id = jitsi
+- client authentication: on
+- authentication flow: check standard flow, unckecl direct access grants
+- root URL: no implication
+- home URL: no implication
+- valid redirect URIs: enter URL of the JITSI that should be loaded after authentication == http://middleware_hostname:9000/*
+- web origins = http://middleware_hostname:9000/*
+- credentials tab: take client secret and set below as CLIENT_SECRET
+
+Run `docker compose up -d`
+
+Access the web UI at https://localhost:8443 (or a different port, in case you edited the .env file).
+
+## More info
+Requires:
+- public IP/vhost for KeyCloak : tcp/443 
+- public IP/vhost for JITSI : tcp/443, udp/10000 
+- public IP/vhost for JitsiAuthMiddleware: tcp/443
+- hostnames (to be further researched and defined)
+
+## TODO
+- [ ] middleware needs to run on 443 with valid SSL
+- [ ] harden all
+
 

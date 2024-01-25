@@ -14,6 +14,7 @@ This repository is a template for all the repositories that will be used at the 
 
 Some elements, such as most of the `docker-compose.yml` and `.env` are coming from [docker-jitsi-meet](https://github.com/jitsi/docker-jitsi-meet)
 
+See also the [devops-guide-docker documentation](https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/) for more information.
 
 ## Instructions
 For now the setup requires authentication for making and joining conf-calls. It does not allow guests.

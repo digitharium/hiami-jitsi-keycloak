@@ -12,7 +12,13 @@ This repository is a template for all the repositories that will be used at the 
 * [Christoph](https://github.com/guschtel)
 * ...
 
+Some elements, such as most of the `docker-compose.yml` and `.env` are coming from [docker-jitsi-meet](https://github.com/jitsi/docker-jitsi-meet)
+
+
 ## Instructions
+For now the setup requires authentication for making and joining conf-calls. It does not allow guests.
+
+
 In order to quickly run Jitsi Meet on a machine running Docker and Docker Compose, follow these steps:
 
 Clone this repository.
@@ -57,6 +63,8 @@ Requires:
 
 ## TODO
 - [ ] middleware needs to run on 443 with valid SSL
+- [ ] disable HTTP
+- [ ] further work out guest support
+- [ ] have a list of variables for hostname(s), and generate everything using these hostnames
 - [ ] harden all
-
 
